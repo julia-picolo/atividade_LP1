@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="text-align: center;">
+    <h1>Recebendo dados no html com JavaScript</h1>
+    <h3 style="color: blue;">Por favor insira os dados da Matriz:</h3>
+
+    <form action="" method="post" id="en"">
+        <label for=" text">Aluno 1</label>
+        <input type="text" name="dados" required>
+        <label for="text">Nota 1</label>
+        <input type="text" name="dados" required>
+        <label for="text">Peso 1</label>
+        <input type="text" name="dados" required>
+        <label for="text">Nota 2</label>
+        <input type="text" name="dados" required>
+        <label for="text">Peso 2</label>
+        <input type="text" name="dados" required><br><br>
+
+        <label for="text">Aluno 2</label>
+        <input type="text" name="dados" required>
+        <label for="text">Nota 1</label>
+        <input type="text" name="dados" required>
+        <label for="text">Peso 1</label>
+        <input type="text" name="dados" required>
+        <label for="text">Nota 2</label>
+        <input type="text" name="dados" required>
+        <label for="text">Peso 2</label>
+        <input type="text" name="dados" required><br><br>
+
+        <label for="text">Aluno 3</label>
+        <input type="text" name="dados" required>
+        <label for="text">Nota 1</label>
+        <input type="text" name="dados" required>
+        <label for="text">Peso 1</label>
+        <input type="text" name="dados" required>
+        <label for="text">Nota 2</label>
+        <input type="text" name="dados" required>
+        <label for="text">Peso 2</label>
+        <input type="text" name="dados" required><br><br>
+
+        <button type="button" onclick="Mostrar()">Mostrar</button>
+        <button type="button" onclick="CalcularMedia()">Calcular Média</button>
+        <button type="button" onclick="Apagar()">Apagar</button>
+    </form>
+
+    <p id="saida"></p>
+    
+    <script>
+        var dados = document.getElementsByName('dados')
+        var msg = 'Dados: '
+        var media = 0
+
+        var Mostrar = () => {
+            for (var i = 0; i < dados.length; i++) {
+                var txt = dados[i].value
+                msg += `${txt}, \n`
+            }
+            alert(msg)
+            document.getElementById("saida").innerHTML = msg
+
+        }
+
+        var CalcularMedia = () => {
+            var n1A1 = Number(dados[1].value)
+            var p1A1 = Number(dados[2].value)
+            var n2A1 = Number(dados[3].value)
+            var p2A1 = Number(dados[4].value)
+
+            var n1A2 = Number(dados[6].value)
+            var p1A2 = Number(dados[7].value)
+            var n2A2 = Number(dados[8].value)
+            var p2A2 = Number(dados[9].value)
+
+            var n1A3 = Number(dados[11].value)
+            var p1A3 = Number(dados[12].value)
+            var n2A3 = Number(dados[13].value)
+            var p2A3 = Number(dados[14].value)
+
+            alert(`médias: \n
+    Aluno 1: ${(n1A1 * p1A1 + n2A1 * p2A1) / (p1A1 + p2A1)} \n
+    Aluno 2: ${(n1A2 * p1A2 + n2A2 * p2A2) / (p1A2 + p2A2)} \n
+    Aluno 3: ${(n1A3 * p1A3 + n2A3 * p2A3) / (p1A3 + p2A3)}`)
+        }
+
+        var Apagar = () => {
+            document.getElementById('en').reset()
+        }
+    </script>
+</body>
+
+</html>
